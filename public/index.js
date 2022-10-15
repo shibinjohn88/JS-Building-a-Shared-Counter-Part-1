@@ -6,7 +6,15 @@ function main(){
     let countValue = 0
 
     async function getUrl() {
-        let response = await fetch("http://localhost:9001/counter")
+        let response = await fetch("http://localhost:9001/counter", {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "value": 15
+            }) 
+        })
         console.log(response)
         // convert json to javascript objects
         let responseObject = await response.json()

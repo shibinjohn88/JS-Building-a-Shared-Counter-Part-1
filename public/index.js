@@ -7,11 +7,14 @@ function main(){
 
     async function getUrl() {
         let response = await fetch("http://localhost:9001/counter")
+        console.log(response)
+        // convert json to javascript objects
         let responseObject = await response.json()
         console.log(responseObject['value'])
         countValue = await responseObject['value']
         countContainer.textContent = await countValue;
     }
+        
 
     getUrl()
 

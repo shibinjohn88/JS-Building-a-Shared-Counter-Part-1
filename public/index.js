@@ -5,14 +5,14 @@ function main(){
 
     let countValue = 0
 
-    async function getUrl() {
+    async function getUrl(count) {
         let response = await fetch("http://localhost:9001/counter", {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "value": 15
+                "value": count
             }) 
         })
         console.log(response)
@@ -24,7 +24,7 @@ function main(){
     }
         
 
-    getUrl()
+    getUrl(50)
 
     
 
